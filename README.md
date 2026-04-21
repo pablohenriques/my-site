@@ -2,7 +2,7 @@
 
 Levantamento completo de custos para intercâmbio de inglês com foco em **brasileiros que trabalham remotamente**. Compara preços de cursos, passagens, custo de vida, regras de imigração e comprovação financeira entre diferentes países.
 
-**[→ Acessar o site](https://seuusuario.github.io/intercambio-ingles/)**
+**[→ Acessar o site]([https://seuusuario.github.io/intercambio-ingles/](https://github.com/pablohenriques/my-site))**
 
 ---
 
