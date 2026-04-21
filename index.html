@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intercâmbio de Inglês — Comparativo Polônia · Canadá · Malta · Irlanda</title>
+<meta name="description" content="Levantamento completo de intercâmbio de inglês na Polônia, Canadá, Malta e Irlanda para brasileiros trabalhando remotamente. Preços, cursos, custo de vida, visto e imigração.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c;
+  --surface: rgba(255,255,255,0.035);
+  --border: rgba(255,255,255,0.07);
+  --text: #ddd8d0;
+  --muted: #8a8278;
+  --dim: #5a5248;
+  --poland: #c8aa6e;
+  --canada: #c04040;
+  --malta: #e6b432;
+  --ireland: #00a050;
+  --danger: #dc503c;
+  --info: #64a0dc;
+  --ok: #50b478;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+/* HERO */
+.hero {
+  padding: 80px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(200,170,110,0.08) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900; line-height: 1.1; margin-bottom: 16px;
+}
+.hero h1 span { display: block; font-size: 0.55em; font-weight: 400; color: var(--muted); margin-top: 8px; font-family: var(--font-body); letter-spacing: 1px; }
+.hero p { color: var(--muted); font-size: 15px; max-width: 520px; margin: 0 auto; }
+
+/* NAV TABS */
+.tabs {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+  padding: 24px 0; position: sticky; top: 0; z-index: 100;
+  background: rgba(8,9,12,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.tab {
+  padding: 10px 24px; border-radius: 100px;
+  border: 1.5px solid var(--border); background: transparent;
+  color: var(--muted); cursor: pointer; font-family: var(--font-body);
+  font-size: 13px; font-weight: 600; transition: all 0.3s;
+  display: flex; align-items: center; gap: 6px;
+}
+.tab:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+.tab.active { color: var(--bg); border-color: transparent; }
+.tab[data-c="poland"].active { background: var(--poland); }
+.tab[data-c="canada"].active { background: var(--canada); color: #fff; }
+.tab[data-c="malta"].active { background: var(--malta); }
+.tab[data-c="ireland"].active { background: var(--ireland); color: #fff; }
+.tab[data-c="compare"].active { background: var(--text); }
+
+/* COUNTRY SECTIONS */
+.country { display: none; padding: 40px 0 60px; animation: fadeIn 0.4s; }
+.country.visible { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* CARDS */
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px; margin-bottom: 24px;
+  transition: border-color 0.3s;
+}
+.card:hover { border-color: rgba(255,255,255,0.12); }
+.card-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.card h3 { font-family: var(--font-display); font-size: 22px; margin-bottom: 12px; }
+
+/* CONFIG BAR */
+.config {
+  display: flex; gap: 24px; align-items: center; justify-content: center;
+  flex-wrap: wrap; padding: 20px 0;
+}
+.config-group { text-align: center; }
+.config-group label { display: block; font-size: 11px; color: var(--muted); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+.config-group select {
+  padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05); color: var(--text);
+  font-family: var(--font-body); font-size: 14px; cursor: pointer;
+}
+
+/* ALERT BOXES */
+.alert {
+  border-radius: 12px; padding: 16px; margin-bottom: 12px;
+  border-left: 3px solid; font-size: 14px;
+}
+.alert-warn { background: rgba(230,180,50,0.06); border-color: var(--malta); }
+.alert-danger { background: rgba(220,80,60,0.06); border-color: var(--danger); }
+.alert-info { background: rgba(100,160,220,0.06); border-color: var(--info); }
+.alert-ok { background: rgba(80,180,120,0.06); border-color: var(--ok); }
+.alert strong { font-weight: 700; }
+
+/* DATA ROWS */
+.data-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.data-row:last-child { border-bottom: none; }
+.data-row .label { color: var(--muted); }
+.data-row .value { font-weight: 700; text-align: right; }
+
+/* CHECKLIST */
+.chk-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.chk-item:last-child { border-bottom: none; }
+.chk-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 18px; border-radius: 4px; font-size: 8px;
+  font-weight: 800; letter-spacing: 0.5px; flex-shrink: 0; margin-top: 3px;
+}
+.chk-badge.obr { background: rgba(220,80,60,0.15); color: var(--danger); }
+.chk-badge.rec { background: rgba(200,170,110,0.15); color: var(--poland); }
+.chk-item h4 { font-size: 14px; font-weight: 600; }
+.chk-item p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+/* TOTAL BOX */
+.total-box {
+  border-radius: 20px; padding: 36px; text-align: center;
+  margin-bottom: 24px;
+}
+.total-box .big-num {
+  font-family: var(--font-body); font-size: 42px; font-weight: 800; line-height: 1;
+}
+.total-box .sub { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+/* SCHOOL CARD */
+.school {
+  padding: 16px; background: rgba(255,255,255,0.025); border-radius: 12px;
+  margin-bottom: 12px; display: flex; justify-content: space-between;
+  align-items: flex-start; flex-wrap: wrap; gap: 8px;
+}
+.school-name { font-weight: 600; font-size: 14px; }
+.school-type { font-size: 12px; color: var(--muted); }
+.school-price { font-size: 18px; font-weight: 700; text-align: right; }
+.school-brl { font-size: 12px; color: var(--muted); }
+.school-note { font-size: 12px; color: var(--muted); font-style: italic; width: 100%; margin-top: 4px; }
+
+/* COMPARE TABLE */
+.cmp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.cmp-table th {
+  padding: 12px 8px; text-align: center; font-size: 12px;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--muted);
+  border-bottom: 2px solid var(--border); font-weight: 700;
+}
+.cmp-table td {
+  padding: 12px 8px; text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.cmp-table td:first-child { text-align: left; color: var(--muted); font-weight: 600; }
+.cmp-table .best { font-weight: 800; }
+.flag { font-size: 18px; }
+
+/* TIPS */
+.tip {
+  display: flex; gap: 14px; padding: 14px;
+  background: rgba(255,255,255,0.025); border-radius: 12px; margin-bottom: 8px;
+}
+.tip-icon { font-size: 24px; flex-shrink: 0; }
+.tip h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.tip p { font-size: 14px; color: var(--muted); }
+
+/* FOOTER */
+.footer {
+  text-align: center; padding: 40px 24px; font-size: 11px;
+  color: var(--dim); border-top: 1px solid var(--border);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .cmp-table { font-size: 12px; }
+  .cmp-table th, .cmp-table td { padding: 8px 4px; }
+  .config { gap: 16px; }
+  .tabs { gap: 6px; }
+  .tab { padding: 8px 14px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-label">Levantamento Completo · Abril 2026</div>
+  <h1>Intercâmbio de Inglês<span>Polônia · Canadá · Malta · Irlanda — para quem trabalha remotamente</span></h1>
+  <p>Preços de cursos, passagens, custo de vida, imigração e comprovação financeira. Tudo calculado em reais.</p>
+</header>
+
+<!-- TABS -->
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-c="compare" onclick="show('compare')">📊 Comparativo</button>
+  <button class="tab" data-c="poland" onclick="show('poland')"><span class="flag">🇵🇱</span> Polônia</button>
+  <button class="tab" data-c="canada" onclick="show('canada')"><span class="flag">🇨🇦</span> Canadá</button>
+  <button class="tab" data-c="malta" onclick="show('malta')"><span class="flag">🇲🇹</span> Malta</button>
+  <button class="tab" data-c="ireland" onclick="show('ireland')"><span class="flag">🇮🇪</span> Irlanda</button>
+</nav>
+
+<main class="wrap">
+
+<!-- ===================== COMPARE ===================== -->
+<section class="country visible" id="sec-compare">
+
+  <div class="config">
+    <div class="config-group">
+      <label>Duração</label>
+      <select id="cfg-meses" onchange="recalc()">
+        <option value="2">2 meses</option>
+        <option value="3">3 meses</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--text)">Comparativo Geral</div>
+    <div style="overflow-x:auto">
+    <table class="cmp-table" id="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th><span class="flag">🇵🇱</span> Polônia</th>
+          <th><span class="flag">🇨🇦</span> Canadá</th>
+          <th><span class="flag">🇲🇹</span> Malta</th>
+          <th><span class="flag">🇮🇪</span> Irlanda</th>
+        </tr>
+      </thead>
+      <tbody id="cmp-body"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--text)">Ranking por Categoria</div>
+    <div id="ranking"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--text)">💡 Recomendações</div>
+    <div class="alert alert-ok">
+      <strong>Mais barato no geral:</strong> 🇲🇹 Malta — cursos acessíveis, transporte gratuito, inglês é idioma oficial, custo de vida baixo para Europa.
+    </div>
+    <div class="alert alert-ok">
+      <strong>Melhor custo-benefício para trabalho remoto:</strong> 🇲🇹 Malta ou 🇵🇱 Polônia — preços similares. Malta ganha pela imersão em inglês e visto de nômade digital.
+    </div>
+    <div class="alert alert-info">
+      <strong>Melhor fuso horário com o Brasil:</strong> 🇨🇦 Canadá (Toronto, -2h) ou 🇮🇪 Irlanda (+3/4h). Polônia e Malta (+4/5h) exigem adaptação maior.
+    </div>
+    <div class="alert alert-info">
+      <strong>Estratégia combinada:</strong> 🇮🇪 Irlanda (fora do Schengen) + 🇲🇹 Malta ou 🇵🇱 Polônia (Schengen) = até 180 dias sem conflito de visto.
+    </div>
+    <div class="alert alert-warn">
+      <strong>Pode trabalhar legalmente:</strong> 🇮🇪 Irlanda com Stamp 2 (curso 25 semanas, 20h/semana) ou 🇲🇹 Malta com Nomad Residence Permit (€3.500/mês de renda).
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POLAND ===================== -->
+<section class="country" id="sec-poland">
+  <div class="card">
+    <div class="card-title" style="color:var(--poland)">🛂 Imigração — Polônia</div>
+    <h3>Sem visto · Até 90 dias (Schengen)</h3>
+    <p>Brasileiros entram sem visto na Polônia por até 90 dias dentro de 180 dias corridos (regra Schengen). Isenção de visto não garante entrada automática.</p>
+    <br>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Passaporte válido (3+ meses após saída)</h4><p>Validade mínima de 3 meses após a data prevista de saída do Espaço Schengen.</p></div></div>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Seguro viagem — mín. €30.000</h4><p>Cobertura médica/hospitalar obrigatória para todo o Espaço Schengen.</p></div></div>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Comprovação financeira — 75 zł/dia</h4><p>Para 60 dias = 4.500 zł + 2.500 zł (retorno) = 7.000 zł (~R$ 9.730). Cash, extrato ou cartão servem.</p></div></div>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Passagem de volta</h4><p>Bilhete aéreo de retorno ao Brasil.</p></div></div>
+    <div class="chk-item"><span class="chk-badge rec">REC</span><div><h4>Matrícula do curso + comprovante de emprego</h4><p>Justifica o motivo e duração da viagem.</p></div></div>
+    <br>
+    <div class="alert alert-warn"><strong>⚠️ Polônia NÃO tem visto de nômade digital.</strong> Trabalho remoto para empresa estrangeira é tolerado dentro dos 90 dias do Schengen.</div>
+    <div class="alert alert-info"><strong>Fuso horário:</strong> +4/5h em relação a Brasília. Estude inglês de manhã, trabalhe à tarde/noite (13h–22h local).</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--poland)">📚 Cursos de Inglês</div>
+    <p style="margin-bottom:16px">Cursos intensivos para estrangeiros, 20–30h/semana. Bem mais baratos que Irlanda ou UK.</p>
+    <div class="school"><div><div class="school-name">Vistula University (Varsóvia)</div><div class="school-type">Intensivo 1 mês (100h)</div></div><div><div class="school-price" style="color:var(--poland)">€400/mês</div><div class="school-brl">≈ R$ 2.540/mês</div></div><div class="school-note">Taxa de inscrição €220 extra</div></div>
+    <div class="school"><div><div class="school-name">Cambridge School of English (Varsóvia)</div><div class="school-type">Intensivo grupo (20h/sem)</div></div><div><div class="school-price" style="color:var(--poland)">€320/mês</div><div class="school-brl">≈ R$ 2.032/mês</div></div><div class="school-note">Grupos pequenos, native speakers</div></div>
+    <div class="school"><div><div class="school-name">Escola privada média</div><div class="school-type">Intensivo grupo (20h/sem)</div></div><div><div class="school-price" style="color:var(--poland)">€350/mês</div><div class="school-brl">≈ R$ 2.223/mês</div></div><div class="school-note">Média do mercado</div></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px">Onde pesquisar: <a href="https://www.languagecourse.net/schools--poland/courses-english" target="_blank" style="color:var(--poland)">LanguageCourse.net</a> · <a href="https://cambridge.com.pl/en/" target="_blank" style="color:var(--poland)">Cambridge School</a> · <a href="https://apply.vistula.edu.pl" target="_blank" style="color:var(--poland)">Vistula University</a></p>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--poland)">🏠 Custo de Vida Mensal (Varsóvia/Cracóvia)</div>
+    <div class="data-row"><span class="label">Aluguel (1 quarto, centro)</span><span class="value">2.500–4.000 zł · R$ 3.475–5.560</span></div>
+    <div class="data-row"><span class="label">Aluguel (1 quarto, periferia)</span><span class="value">1.500–2.500 zł · R$ 2.085–3.475</span></div>
+    <div class="data-row"><span class="label">Alimentação (supermercado)</span><span class="value">600–900 zł · R$ 834–1.251</span></div>
+    <div class="data-row"><span class="label">Transporte público</span><span class="value">100–150 zł · R$ 139–209</span></div>
+    <div class="data-row"><span class="label">Internet</span><span class="value">50–100 zł · R$ 70–139</span></div>
+    <div class="data-row"><span class="label">Lazer e extras</span><span class="value">300–500 zł · R$ 417–695</span></div>
+    <div class="data-row" style="font-weight:700;border-top:2px solid var(--border)"><span class="label">Total estimado (centro)</span><span class="value" style="color:var(--poland)">~R$ 6.400/mês</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--poland)">✈️ Passagens & Seguro</div>
+    <div class="data-row"><span class="label">Passagem ida e volta (média)</span><span class="value">R$ 5.200</span></div>
+    <div class="data-row"><span class="label">Passagem (baixa temporada)</span><span class="value">R$ 3.100</span></div>
+    <div class="data-row"><span class="label">Seguro viagem (por dia)</span><span class="value">R$ 11/dia</span></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px">Sem voos diretos. Turkish Airlines, KLM, Air France. 1 escala, ~15–20h. Câmbio: 1 PLN ≈ R$ 1,39 · 1 EUR ≈ R$ 6,35</p>
+  </div>
+</section>
+
+<!-- ===================== CANADA ===================== -->
+<section class="country" id="sec-canada">
+  <div class="card">
+    <div class="card-title" style="color:var(--canada)">🛂 Imigração — Canadá</div>
+    <h3>Visto obrigatório · Até 6 meses</h3>
+    <p>Brasileiros precisam de <strong>Visitor Visa</strong> (CAD $185) ou <strong>eTA</strong> (CAD $7, se elegível). Permanência de até 6 meses — o dobro do Schengen.</p>
+    <br>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Visitor Visa ou eTA</h4><p>Solicitar ANTES de embarcar. Processamento: 30–60 dias. CAD $185 (~R$ 673).</p></div></div>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Comprovação financeira — ~CAD 2.500/mês</h4><p>Extrato bancário de 6 meses com saldo consistente. Analisado antes do embarque.</p></div></div>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Passaporte (6+ meses) + passagem de volta</h4><p>Documentos analisados durante aplicação do visto e na chegada.</p></div></div>
+    <br>
+    <div class="alert alert-danger"><strong>⚠️ Diferença crucial:</strong> No Canadá o extrato é analisado ANTES do embarque. Precisa ter o dinheiro na conta há 3–6 meses. Depósitos de última hora = red flag.</div>
+    <div class="alert alert-info"><strong>Fuso horário:</strong> Toronto -2h · Vancouver -5h em relação a Brasília. Toronto é o melhor fuso para trabalho remoto com BR.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--canada)">📚 Cursos de Inglês</div>
+    <p style="margin-bottom:16px">O Canadá é um dos destinos mais populares para cursos de inglês. ILAC e EC English são referências.</p>
+    <div class="school"><div><div class="school-name">ILAC (Toronto/Vancouver)</div><div class="school-type">Intensivo 30 lições/sem</div></div><div><div class="school-price" style="color:var(--canada)">C$ 1.400/mês</div><div class="school-brl">≈ R$ 5.096/mês</div></div></div>
+    <div class="school"><div><div class="school-name">EC English</div><div class="school-type">Intensivo 30 lições/sem</div></div><div><div class="school-price" style="color:var(--canada)">C$ 1.300/mês</div><div class="school-brl">≈ R$ 4.732/mês</div></div></div>
+    <div class="school"><div><div class="school-name">Escola média</div><div class="school-type">General English 20h/sem</div></div><div><div class="school-price" style="color:var(--canada)">C$ 900/mês</div><div class="school-brl">≈ R$ 3.276/mês</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--canada)">🏠 Custo de Vida Mensal (Toronto)</div>
+    <div class="data-row"><span class="label">Aluguel (1 quarto, centro)</span><span class="value">C$ 2.100–2.600 · R$ 7.644–9.464</span></div>
+    <div class="data-row"><span class="label">Alimentação</span><span class="value">C$ 300–500 · R$ 1.092–1.820</span></div>
+    <div class="data-row"><span class="label">Transporte público (passe)</span><span class="value">C$ 156 · R$ 568</span></div>
+    <div class="data-row"><span class="label">Internet + celular</span><span class="value">C$ 80–120 · R$ 291–437</span></div>
+    <div class="data-row"><span class="label">Lazer</span><span class="value">C$ 200–400 · R$ 728–1.456</span></div>
+    <div class="data-row" style="font-weight:700;border-top:2px solid var(--border)"><span class="label">Total estimado (Toronto, centro)</span><span class="value" style="color:var(--canada)">~R$ 12.000/mês</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--canada)">✈️ Passagens & Visto</div>
+    <div class="data-row"><span class="label">Passagem ida e volta (média)</span><span class="value">R$ 4.200</span></div>
+    <div class="data-row"><span class="label">Visitor Visa + biometria</span><span class="value">CAD $185 · R$ 673</span></div>
+    <div class="data-row"><span class="label">Seguro viagem (por dia)</span><span class="value">R$ 15/dia</span></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px">Voos diretos GRU→Toronto (~10h) pela Air Canada. Câmbio: 1 CAD ≈ R$ 3,64</p>
+  </div>
+</section>
+
+<!-- ===================== MALTA ===================== -->
+<section class="country" id="sec-malta">
+  <div class="card">
+    <div class="card-title" style="color:var(--malta)">🛂 Imigração — Malta</div>
+    <h3>Sem visto · Até 90 dias (Schengen) · Visto nômade digital disponível</h3>
+    <p>Mesma regra da Polônia (Schengen). Grande diferencial: Malta tem o <strong>Nomad Residence Permit</strong> — visto de nômade digital para até 4 anos.</p>
+    <br>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Passaporte + seguro €30.000 + passagem de volta</h4><p>Mesmos requisitos Schengen da Polônia.</p></div></div>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Comprovação financeira — ~€100/dia</h4><p>Sem valor fixo oficial. Padrão Schengen: ~€100/dia. Para 60 dias ≈ €6.000 (R$ 38.100).</p></div></div>
+    <br>
+    <div class="alert alert-ok"><strong>☀️ Nomad Residence Permit:</strong> Até 4 anos de residência. Isenção de imposto no 1º ano, 10% flat depois. Exige renda mín. €3.500/mês (€42.000/ano). Taxa ~€400. Se você ganha acima de R$ 22 mil/mês, pode ser perfeito.</div>
+    <div class="alert alert-ok"><strong>🇬🇧 Inglês é idioma OFICIAL.</strong> 88% dos malteses falam inglês. Imersão natural no dia a dia. Incomparável com Polônia.</div>
+    <div class="alert alert-ok"><strong>🚌 Transporte público GRÁTIS</strong> com cartão Tallinja. Todos os ônibus da ilha.</div>
+    <div class="alert alert-info"><strong>Fuso horário:</strong> +4/5h em relação a Brasília — mesmo que Polônia.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--malta)">📚 Cursos de Inglês</div>
+    <p style="margin-bottom:16px">Malta é um dos destinos mais baratos para inglês em país anglófono. Até 50% mais barato que Irlanda/UK.</p>
+    <div class="school"><div><div class="school-name">IH Malta (St. Julians)</div><div class="school-type">Intensivo 30 lições/sem</div></div><div><div class="school-price" style="color:var(--malta)">€220/sem</div><div class="school-brl">≈ R$ 1.397/sem</div></div><div class="school-note">Long-term: €160/sem</div></div>
+    <div class="school"><div><div class="school-name">Maltalingua</div><div class="school-type">Intensivo 30 lições/sem</div></div><div><div class="school-price" style="color:var(--malta)">€280/sem</div><div class="school-brl">≈ R$ 1.778/sem</div></div><div class="school-note">Escola premium, turmas 8-10</div></div>
+    <div class="school"><div><div class="school-name">Gateway School of English</div><div class="school-type">General English 20 lições/sem</div></div><div><div class="school-price" style="color:var(--malta)">€160/sem</div><div class="school-brl">≈ R$ 1.016/sem</div></div><div class="school-note">Opção mais econômica</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--malta)">🏠 Custo de Vida Mensal (St. Julians/Sliema)</div>
+    <div class="data-row"><span class="label">Aluguel (1 quarto, centro)</span><span class="value">€700–1.000 · R$ 4.445–6.350</span></div>
+    <div class="data-row"><span class="label">Alimentação</span><span class="value">€200–300 · R$ 1.270–1.905</span></div>
+    <div class="data-row"><span class="label">Transporte público</span><span class="value" style="color:var(--ok);font-weight:800">GRÁTIS 🎉</span></div>
+    <div class="data-row"><span class="label">Internet + celular</span><span class="value">€60–100 · R$ 381–635</span></div>
+    <div class="data-row"><span class="label">Utilidades + lazer</span><span class="value">€230–300 · R$ 1.461–1.905</span></div>
+    <div class="data-row" style="font-weight:700;border-top:2px solid var(--border)"><span class="label">Total estimado (centro)</span><span class="value" style="color:var(--malta)">~R$ 8.954/mês</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--malta)">✈️ Passagens & Seguro</div>
+    <div class="data-row"><span class="label">Passagem ida e volta (média)</span><span class="value">R$ 5.500</span></div>
+    <div class="data-row"><span class="label">Passagem (promoção)</span><span class="value">R$ 4.600</span></div>
+    <div class="data-row"><span class="label">Seguro viagem (por dia)</span><span class="value">R$ 11/dia</span></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px">Sem voos diretos. Conexão via Roma (ITA Airways), Frankfurt (Lufthansa). ~15–21h. Câmbio: 1 EUR ≈ R$ 6,35</p>
+  </div>
+</section>
+
+<!-- ===================== IRELAND ===================== -->
+<section class="country" id="sec-ireland">
+  <div class="card">
+    <div class="card-title" style="color:var(--ireland)">🛂 Imigração — Irlanda</div>
+    <h3>Sem visto prévio · Até 90 dias · FORA do Schengen</h3>
+    <p>A Irlanda <strong>NÃO faz parte do Schengen</strong>. Sistema de imigração próprio. Brasileiros entram sem visto prévio por até 90 dias. Seus dias na Irlanda são independentes dos 90 dias Schengen.</p>
+    <br>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Passaporte válido + passagem de volta</h4><p>Deve cobrir todo o período da estadia.</p></div></div>
+    <div class="chk-item"><span class="chk-badge obr">OBR</span><div><h4>Comprovação financeira — €500/semana</h4><p>Para 8 semanas = €4.000 (R$ 25.400). Verificação no aeroporto, na chegada.</p></div></div>
+    <div class="chk-item"><span class="chk-badge rec">REC</span><div><h4>Seguro viagem + hospedagem + matrícula</h4><p>Altamente recomendados. Oficial pode pedir na entrevista de imigração.</p></div></div>
+    <br>
+    <div class="alert alert-ok"><strong>Vantagem exclusiva:</strong> Irlanda fora do Schengen = 90 dias aqui + 90 dias em qualquer país Schengen (Polônia, Malta). Até 180 dias de intercâmbio sem conflito de visto.</div>
+    <div class="alert alert-info"><strong>Stamp 2 (curso 25 semanas):</strong> Permite ficar até 8 meses e trabalhar 20h/semana. Exige comprovação de €6.665 depositados em banco irlandês.</div>
+    <div class="alert alert-info"><strong>Fuso horário:</strong> +3/4h em relação a Brasília — o melhor da Europa para trabalho remoto com BR.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--ireland)">📚 Cursos de Inglês</div>
+    <p style="margin-bottom:16px">Destino #1 de brasileiros para intercâmbio de inglês. Centenas de escolas acreditadas.</p>
+    <div class="school"><div><div class="school-name">ISI Dublin</div><div class="school-type">Intensivo 20h/sem</div></div><div><div class="school-price" style="color:var(--ireland)">€680/mês</div><div class="school-brl">≈ R$ 4.318/mês</div></div></div>
+    <div class="school"><div><div class="school-name">Atlas Language School</div><div class="school-type">Intensivo 20h/sem</div></div><div><div class="school-price" style="color:var(--ireland)">€750/mês</div><div class="school-brl">≈ R$ 4.763/mês</div></div></div>
+    <div class="school"><div><div class="school-name">CES Dublin/Cork</div><div class="school-type">Intensivo 20h/sem</div></div><div><div class="school-price" style="color:var(--ireland)">€800/mês</div><div class="school-brl">≈ R$ 5.080/mês</div></div></div>
+    <div class="school"><div><div class="school-name">Escola econômica</div><div class="school-type">General English 15h/sem</div></div><div><div class="school-price" style="color:var(--ireland)">€550/mês</div><div class="school-brl">≈ R$ 3.493/mês</div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--ireland)">🏠 Custo de Vida Mensal (Dublin)</div>
+    <div class="data-row"><span class="label">Quarto compartilhado (centro)</span><span class="value">€700–900 · R$ 4.445–5.715</span></div>
+    <div class="data-row"><span class="label">Apartamento 1 quarto (centro)</span><span class="value">€1.400–1.600 · R$ 8.890–10.160</span></div>
+    <div class="data-row"><span class="label">Alimentação</span><span class="value">€200–350 · R$ 1.270–2.223</span></div>
+    <div class="data-row"><span class="label">Transporte público (passe)</span><span class="value">€84–120 · R$ 533–762</span></div>
+    <div class="data-row"><span class="label">Internet + lazer</span><span class="value">€280–400 · R$ 1.778–2.540</span></div>
+    <div class="data-row" style="font-weight:700;border-top:2px solid var(--border)"><span class="label">Total estimado (Dublin, quarto)</span><span class="value" style="color:var(--ireland)">~R$ 9.588/mês</span></div>
+    <div class="alert alert-warn" style="margin-top:12px"><strong>Dublin é cara.</strong> Cork e Galway são 15–30% mais baratos. Quartos compartilhados são a norma.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--ireland)">✈️ Passagens & Seguro</div>
+    <div class="data-row"><span class="label">Passagem ida e volta (média)</span><span class="value">R$ 5.200</span></div>
+    <div class="data-row"><span class="label">Seguro viagem (por dia)</span><span class="value">R$ 12/dia</span></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px">Sem voos diretos. Conexão via Lisboa (TAP), Londres (BA). ~15–17h. Câmbio: 1 EUR ≈ R$ 6,35</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  Levantamento realizado em abril de 2026 com base em fontes públicas: gov.pl, IRCC, irishimmigration.ie, Residency Malta Agency, Numbeo, KAYAK, LanguageCourse.net, Maltalingua, ILAC, Egali, E-Dublin.<br>
+  Valores sujeitos a alteração cambial e de mercado. Consulte fontes oficiais antes de tomar decisões.
+</footer>
+
+<script>
+const EUR = 6.35, PLN = 1.39, CAD = 3.64;
+
+const countries = {
+  poland:  { flag:'🇵🇱', name:'Polônia',  color:'var(--poland)',  passagem:5200, cursoMes:350*EUR, vidaMes:4600*PLN, seguroDia:11, visto:0, fundosFn: d => (75*d+2500)*PLN, fuso:'+4/5h', inglês:'Não', schengen:'Sim', transporte:'Pago', limite:'90 dias', nomad:'Não' },
+  canada:  { flag:'🇨🇦', name:'Canadá',   color:'var(--canada)',  passagem:4200, cursoMes:1200*CAD, vidaMes:3300*CAD, seguroDia:15, visto:185*CAD, fundosFn: d => 2500*(d/30)*CAD, fuso:'-2h (TO)', inglês:'Sim', schengen:'N/A', transporte:'Pago', limite:'6 meses', nomad:'Não' },
+  malta:   { flag:'🇲🇹', name:'Malta',    color:'var(--malta)',   passagem:5500, cursoMes:220*4*EUR, vidaMes:1410*EUR, seguroDia:11, visto:0, fundosFn: d => 100*d*EUR, fuso:'+4/5h', inglês:'Sim ✦', schengen:'Sim', transporte:'GRÁTIS ✦', limite:'90d / 4a NRP', nomad:'Sim ✦' },
+  ireland: { flag:'🇮🇪', name:'Irlanda',  color:'var(--ireland)', passagem:5200, cursoMes:750*EUR, vidaMes:1510*EUR, seguroDia:12, visto:0, fundosFn: d => 500*(d/7)*EUR, fuso:'+3/4h ✦', inglês:'Sim', schengen:'Não ✦', transporte:'Pago', limite:'90d / 8m Stamp2', nomad:'Não' },
+};
+
+function f(v){ return 'R$ '+Math.round(v).toLocaleString('pt-BR'); }
+
+function recalc(){
+  const m = +document.getElementById('cfg-meses').value;
+  const d = m*30;
+  const rows = [
+    ['Gasto total',       c => f(c.passagem + c.cursoMes*m + c.vidaMes*m + c.seguroDia*d + c.visto), true],
+    ['Custo de vida/mês', c => f(c.vidaMes), true],
+    ['Curso/mês',         c => f(c.cursoMes), true],
+    ['Passagem ida/volta',c => f(c.passagem), true],
+    ['Seguro (total)',    c => f(c.seguroDia*d), true],
+    ['Visto',             c => c.visto ? f(c.visto) : 'Isento', false],
+    ['Comprovação financeira', c => f(c.fundosFn(d)), true],
+    ['Valor em conta recomendado', c => f(c.passagem+c.cursoMes*m+c.vidaMes*m+c.seguroDia*d+c.visto+c.fundosFn(d)+c.vidaMes), true],
+    ['Inglês local',      c => c.inglês, false],
+    ['Fuso vs BR',        c => c.fuso, false],
+    ['Schengen',          c => c.schengen, false],
+    ['Transporte',        c => c.transporte, false],
+    ['Limite turista',    c => c.limite, false],
+    ['Visto nômade',      c => c.nomad, false],
+  ];
+
+  const keys = ['poland','canada','malta','ireland'];
+  let html = '';
+  rows.forEach(([label, fn, isCost]) => {
+    html += '<tr><td>'+label+'</td>';
+    if(isCost){
+      const vals = keys.map(k => {
+        const raw = fn(countries[k]);
+        const num = parseInt(raw.replace(/[^\d]/g,''));
+        return { key:k, raw, num };
+      });
+      const best = Math.min(...vals.map(v=>v.num));
+      vals.forEach(v => {
+        const isBest = v.num === best;
+        html += '<td'+(isBest?' class="best" style="color:'+countries[v.key].color+'"':'')+'>'+ v.raw +'</td>';
+      });
+    } else {
+      keys.forEach(k => {
+        const v = fn(countries[k]);
+        const star = v.includes('✦');
+        html += '<td'+(star?' style="font-weight:700;color:var(--ok)"':'')+'>'+ v.replace(' ✦','') +'</td>';
+      });
+    }
+    html += '</tr>';
+  });
+  document.getElementById('cmp-body').innerHTML = html;
+
+  // ranking
+  const totals = keys.map(k => {
+    const c = countries[k];
+    return { key:k, total: c.passagem+c.cursoMes*m+c.vidaMes*m+c.seguroDia*d+c.visto };
+  }).sort((a,b)=>a.total-b.total);
+  const maxT = totals[totals.length-1].total;
+  let rhtml = '';
+  totals.forEach((t,i)=>{
+    const c = countries[t.key];
+    const pct = (t.total/maxT*100);
+    rhtml += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">';
+    rhtml += '<span style="font-size:13px;width:24px;text-align:center;color:var(--muted)">#'+(i+1)+'</span>';
+    rhtml += '<span style="font-size:20px">'+c.flag+'</span>';
+    rhtml += '<div style="flex:1"><div style="font-size:14px;font-weight:600">'+c.name+' <span style="color:var(--muted);font-weight:400">'+f(t.total)+'</span></div>';
+    rhtml += '<div style="height:6px;background:var(--border);border-radius:3px;margin-top:4px;overflow:hidden"><div style="height:100%;width:'+pct+'%;background:'+c.color+';border-radius:3px"></div></div>';
+    rhtml += '</div></div>';
+  });
+  document.getElementById('ranking').innerHTML = rhtml;
+}
+
+function show(id){
+  document.querySelectorAll('.country').forEach(s=>s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('visible');
+  document.querySelector('.tab[data-c="'+id+'"]').classList.add('active');
+}
+
+recalc();
+</script>
+</body>
+</html>
